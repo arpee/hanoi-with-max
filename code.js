@@ -1,3 +1,4 @@
+
 var a = [];
 var b = [];
 var c = [];
@@ -30,8 +31,19 @@ function draw() {
     console.log(a);
     console.log(b);
     console.log(c);
+    drawstack(".a", a);
+    drawstack(".b", b);
+    drawstack(".c", c);
 }
 
-
+function drawstack(sel, arr) {
+    var el = document.querySelector(sel);
+    el.innerHTML = "";
+    var bk = arr;
+    bk.reverse().forEach(item => {
+        el.innerHTML += '<div class="t' + item + '">' + item + '</div>';
+    });
+    bk.reverse();
+}
 
 init();
